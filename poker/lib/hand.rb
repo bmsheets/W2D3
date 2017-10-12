@@ -49,27 +49,31 @@ class Hand
     end
   end
 
+  def values
+    @cards.map { |card| card.value }
+  end
+
   def is_pair?
-    @cards.any? { |card| @cards.count(card) >= 2 }
+    values.any? { |value| values.count(value) >= 2 }
   end
 
   def is_two_pair?
     num_pairs = 0
-    @cards.uniq.each do |card|
-      num_pairs += 1 if @cards.count(card) >= 2
+    values.uniq.each do |value|
+      num_pairs += 1 if values.count(value) >= 2
     end
     num_pairs > 1
   end
 
   def is_three_of_a_kind?
-    @cards.any? { |card| @cards.count(card) >= 3 }
+    values.any? { |value| values.count(value) >= 3 }
   end
 
   def is_straight?
-    values = @cards.map { |card| card.value }
-    values.sort.each_index do |i|
-      next if i == values.length - 1
-      return false if values[i] != values[i + 1] + 1
+    numerical_values = @cards.map { |card| Card::VALUES[card.value] }
+    numerical_values.sort.each_index do |i|
+      next if i == numerical_values.length - 1
+      return false if numerical_values[i] != numerical_values[i + 1] + 1
     end
     true
   end
@@ -83,7 +87,7 @@ class Hand
   end
 
   def is_four_of_a_kind?
-    @cards.any? { |card| @cards.count(card) >= 4 }
+    values.any? { |value| values.count(value) >= 4 }
   end
 
   def is_straight_flush?
@@ -92,8 +96,8 @@ class Hand
 
   def is_royal_flush?
     return false unless is_straight_flush?
-    values = @cards.map { |card| card.value }
-    values.sort == [10, 11, 12, 13, 14]
+    numerical_values = @cards.map { |card| Card::VALUES[card.value] }
+    numerical_values.sort == [10, 11, 12, 13, 14]
   end
 end
 
