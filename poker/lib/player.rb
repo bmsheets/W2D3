@@ -2,10 +2,9 @@ require_relative "hand"
 
 class Player
 
-  def initialize
-  end
-
-  def place_bet(amount)
+  def initialize(name, funds)
+    @name = name
+    @funds = funds
   end
 
   def fold
