@@ -38,7 +38,7 @@ describe Hand do
       expect(hand.is_two_pair?).to be_truthy
     end
 
-    it "returns false if hand does not contain a pair" do
+    it "returns false if hand does not contain two pairs" do
       expect(bad_hand.is_two_pair?).to be_falsey
     end
   end
@@ -53,7 +53,7 @@ describe Hand do
       expect(hand.is_three_of_a_kind?).to be_truthy
     end
 
-    it "returns false if hand does not contain a pair" do
+    it "returns false if hand does not contain three of a kind" do
       expect(bad_hand.is_three_of_a_kind?).to be_falsey
     end
   end
@@ -68,7 +68,7 @@ describe Hand do
       expect(hand.is_straight?).to be_truthy
     end
 
-    it "returns false if hand does not contain a pair" do
+    it "returns false if hand does not contain a straight" do
       expect(bad_hand.is_straight?).to be_falsey
     end
   end
@@ -83,7 +83,7 @@ describe Hand do
       expect(hand.is_flush?).to be_truthy
     end
 
-    it "returns false if hand does not contain a pair" do
+    it "returns false if hand does not contain a flush" do
       expect(bad_hand.is_flush?).to be_falsey
     end
   end
@@ -98,7 +98,7 @@ describe Hand do
       expect(hand.is_full_house?).to be_truthy
     end
 
-    it "returns false if hand does not contain a pair" do
+    it "returns false if hand does not contain a full house" do
       expect(bad_hand.is_full_house?).to be_falsey
     end
   end
@@ -113,7 +113,7 @@ describe Hand do
       expect(hand.is_four_of_a_kind?).to be_truthy
     end
 
-    it "returns false if hand does not contain a pair" do
+    it "returns false if hand does not contain a four of a kind" do
       expect(bad_hand.is_four_of_a_kind?).to be_falsey
     end
   end
@@ -128,7 +128,7 @@ describe Hand do
       expect(hand.is_straight_flush?).to be_truthy
     end
 
-    it "returns false if hand does not contain a pair" do
+    it "returns false if hand does not contain a straight flush" do
       expect(bad_hand.is_straight_flush?).to be_falsey
     end
   end
@@ -143,7 +143,7 @@ describe Hand do
       expect(hand.is_royal_flush?).to be_truthy
     end
 
-    it "returns false if hand does not contain a pair" do
+    it "returns false if hand does not contain a royal flush" do
       expect(bad_hand.is_royal_flush?).to be_falsey
     end
   end
